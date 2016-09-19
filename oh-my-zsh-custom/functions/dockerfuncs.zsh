@@ -19,14 +19,3 @@ gmutt(){
 	)
 }
 
-googler(){
-    docker run --rm -it --name googler kylecrawshaw/googler "$@"
-}
-
-py3() {
-    docker run --rm -it -v "$PWD":/data/ kylecrawshaw/python3.5env python "$@"
-}
-
-py3i() {
-    docker run --rm -it -v "$PWD":/data/ kylecrawshaw/python3.5env pip install "$@"
-}
