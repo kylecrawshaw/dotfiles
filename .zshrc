@@ -133,3 +133,5 @@ fi
 listsysctls () { set -A reply $(sysctl -AN ${1%.*}) }
 compctl -K listsysctls sysctl
 
+# Stop oh-my-zsh from renaming tmux windows
+DISABLE_AUTO_TITLE=true
