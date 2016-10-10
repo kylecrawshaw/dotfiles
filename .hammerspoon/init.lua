@@ -1,5 +1,5 @@
 require "keys"
-require "pomadoro"
+require "pomodoro"
 require "random"
 require "windows"
 
