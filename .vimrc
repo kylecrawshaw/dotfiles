@@ -1,16 +1,11 @@
 "enable syntax highlighting
 syntax enable
 
+
+" background and colorscheme
 set background=dark
-" if has('gui_running')
-"     set background=dark
-" else
-"     set background=light
-" endif
 colorscheme solarized
 
-filetype indent plugin on
-let g:pymode_options_max_line_length = 120
 map <F2> :mksession! ~/.vim_session <cr> " Quick write session with F2
 map <F3> :source ~/.vim_session <cr>     " And load session with F3
 " show line numbers
@@ -34,8 +29,6 @@ set cursorline
 " show the matching part of the pair for [] {} and ()
 set showmatch
 
-" enable all Python syntax highlighting features
-let python_highlight_all = 1
 
 " configure Vundle
 set nocompatible              " be iMproved, required
@@ -56,19 +49,39 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'wincent/command-t'
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" NERDTree Shortcuts
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeShowHidden=1
+autocmd VimEnter * if !argc() | NERDTree | endif
+
 
 " Python-mode options
 let g:pymode_virtualenv = 1
-
-let NERDTreeIgnore = ['\.pyc$']
-
+let g:virtualenv_directory = '$PWD'
+let g:virtualenv_auto_activate = 1
 let g:pymode_lint_checkers = ['pylint', 'pyflakes']
-let NERDTreeShowHidden=1
-filetype plugin on
+let g:pymode_options_max_line_length = 120
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
+
+" maybe git rid of
+" filetype plugin on
 let vim_markdown_preview_github=1
-" let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_browser='Safari'
+
+" Ultisnips prefs
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"

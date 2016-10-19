@@ -2,8 +2,9 @@ require "keys"
 require "pomodoro"
 require "random"
 require "windows"
+-- require "mjomatic"
 
-local showalerts = false
+local showalerts = true
 function toggleHideAlerts ()
     if showalerts then 
         showalerts = false
@@ -70,4 +71,6 @@ function reloadConfig(files)
     end
 end
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
+hs.notify.new({title="Hammerspoon!", informativeText="Loaded and ready."}):send()
 hs.alert.show("Config loaded")
+hs.ipc.cliInstall()

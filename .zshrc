@@ -135,3 +135,7 @@ compctl -K listsysctls sysctl
 
 # Stop oh-my-zsh from renaming tmux windows
 DISABLE_AUTO_TITLE=true
+export PATH="/usr/local/sbin:$PATH"
+
+# added by travis gem
+[ -f /Users/kylecrawshaw/.travis/travis.sh ] && source /Users/kylecrawshaw/.travis/travis.sh
