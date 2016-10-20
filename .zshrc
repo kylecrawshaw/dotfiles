@@ -126,7 +126,7 @@ function install_powerline_precmd() {
 
 
 if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
+    # install_powerline_precmd
 fi
 
 

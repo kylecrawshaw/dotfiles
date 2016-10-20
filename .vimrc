@@ -1,7 +1,6 @@
 "enable syntax highlighting
 syntax enable
 
-
 " background and colorscheme
 set background=dark
 colorscheme solarized
@@ -29,6 +28,7 @@ set cursorline
 " show the matching part of the pair for [] {} and ()
 set showmatch
 
+set encoding=utf-8 " necessary for unicode glyphs
 
 " configure Vundle
 set nocompatible              " be iMproved, required
@@ -40,7 +40,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/nerdTree'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'danro/rename.vim'
@@ -52,6 +51,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'wincent/command-t'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'bling/vim-airline'
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
@@ -62,8 +63,11 @@ filetype plugin indent on    " required
 
 " NERDTree Shortcuts
 map <C-n> :NERDTreeToggle<CR>
+" Toggle NERDTree with <leader>d
+" map <silent> <leader>n :execute 'NERDTreeToggle ' . getcwd()<CR>
 let NERDTreeIgnore = ['\.pyc$']
 let NERDTreeShowHidden=1
+let NERDTreeQuitOnOpen=1
 autocmd VimEnter * if !argc() | NERDTree | endif
 
 
@@ -85,3 +89,10 @@ let vim_markdown_preview_browser='Safari'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+set laststatus=2 " always show the status
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+set mouse=a " enable mouse in all modes
+set ttymouse=xterm  " set mouse type to xterm
