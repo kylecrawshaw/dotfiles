@@ -1,5 +1,5 @@
 
-alias gam='python $HOME/GAM/gam.py'
+alias gam='python $HOME/GAM/src/gam.py'
 alias giu="gam info user"
 alias gig="gam info group"
 alias gcg="gam create group"

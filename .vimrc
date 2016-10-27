@@ -52,6 +52,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'wincent/command-t'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'moll/vim-node'
 Plugin 'bling/vim-airline'
 " Track the engine.
 Plugin 'SirVer/ultisnips'
