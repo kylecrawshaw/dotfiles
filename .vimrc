@@ -1,9 +1,6 @@
 "enable syntax highlighting
 syntax enable
 
-" background and colorscheme
-set background=dark
-colorscheme solarized
 
 map <F2> :mksession! ~/.vim_session <cr> " Quick write session with F2
 map <F3> :source ~/.vim_session <cr>     " And load session with F3
@@ -61,6 +58,10 @@ Plugin 'honza/vim-snippets'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" background and colorscheme
+set background=dark
+colorscheme solarized
 
 " NERDTree Shortcuts
 map <C-n> :NERDTreeToggle<CR>
