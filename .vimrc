@@ -95,6 +95,12 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 set laststatus=2 " always show the status
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" shortcuts for buffer management
+map gn :bn<cr>
+map gp :bp<cr>
+map gd :bd<cr>
 
 set mouse=a " enable mouse in all modes
 set ttymouse=xterm  " set mouse type to xterm
