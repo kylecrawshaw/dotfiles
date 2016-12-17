@@ -28,3 +28,19 @@ function bzapp() {
         cd $CUR_DIR
     fi
 }
+
+function cmc() {
+    CONFIG_PROFILE_PATH="$1"
+    if [ -z "$2" ]; then
+        OUTPUT_PATH="$CONFIG_PROFILE_PATH"
+    else
+        OUTPUT_PATH="$2"
+    fi
+
+    if [ "${CONFIG_PROFILE_PATH##*.}" != "mobileconfig" ]; then
+        echo "Invalid type. Must end in .mobileconfig"
+    else
+        openssl smime -inform DER -verify -in "$CONFIG_PROFILE_PATH" -noverify 2>/dev/null | xmllint --pretty 1 --output "$OUTPUT_PATH" -
+    echo "Removed profile signing: $OUTPUT_PATH"
+    fi
+}

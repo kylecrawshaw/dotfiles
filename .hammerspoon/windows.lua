@@ -119,3 +119,42 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, ",", function()
   f.h = max.h
   win:setFrame(f)
 end)
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "[", function()
+  send_window_prev_monitor()
+end)
+-- Send Window Next Monitor
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "]", function()
+  send_window_next_monitor()
+end)
+
+function send_window_prev_monitor()
+  hs.alert.show("Prev Monitor")
+  local win = hs.window.focusedWindow()
+  local nextScreen = win:screen():previous()
+  win:moveToScreen(nextScreen)
+end
+
+
+function send_window_next_monitor()
+  hs.alert.show("Next Monitor")
+  local win = hs.window.focusedWindow()
+  local nextScreen = win:screen():next()
+  win:moveToScreen(nextScreen)
+end
+
+--- hs.window:moveToScreen(screen)
+--- Method
+--- move window to the the given screen, keeping the relative proportion and position window to the original screen.
+--- Example: win:moveToScreen(win:screen():next()) -- move window to next screen
+function hs.window:moveToScreen(nextScreen)
+  local currentFrame = self:frame()
+  local screenFrame = self:screen():frame()
+  local nextScreenFrame = nextScreen:frame()
+  self:setFrame({
+    x = ((((currentFrame.x - screenFrame.x) / screenFrame.w) * nextScreenFrame.w) + nextScreenFrame.x),
+    y = ((((currentFrame.y - screenFrame.y) / screenFrame.h) * nextScreenFrame.h) + nextScreenFrame.y),
+    h = ((currentFrame.h / screenFrame.h) * nextScreenFrame.h),
+    w = ((currentFrame.w / screenFrame.w) * nextScreenFrame.w)
+  })
+end
