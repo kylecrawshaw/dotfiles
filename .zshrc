@@ -55,7 +55,7 @@ plugins=(git brew catimg convert osx tmuxomatic tmux zsh-syntax-highlighting)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/`whoami`/Library/Python/2.7/bin:/Users/`whoami`/anaconda3/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/`whoami`/Library/Python/2.7/bin:/Users/`whoami`/bin/flutter/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -100,7 +100,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
-export AWS_PROFILE=personal
+export AWS_PROFILE=circleit
 
 
 function pem_encrypt() {
@@ -139,3 +139,14 @@ export PATH="/usr/local/sbin:$PATH"
 
 # added by travis gem
 [ -f /Users/kylecrawshaw/.travis/travis.sh ] && source /Users/kylecrawshaw/.travis/travis.sh
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh

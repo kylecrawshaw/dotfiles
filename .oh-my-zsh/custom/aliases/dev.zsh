@@ -19,3 +19,6 @@ function ipy3() {
 }
 
 alias techo3='say yes; cd ~/ && echo "$@"'
+
+alias dynamo='java -Djava.library.path=~/UtilityRepos/DynamoDBLocal_lib -jar ~/UtilityRepos/DynamoDBLocal.jar -sharedDb'
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"

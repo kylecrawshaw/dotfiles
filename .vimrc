@@ -81,7 +81,7 @@ autocmd VimEnter * if !argc() | NERDTree | endif
 let g:pymode_virtualenv = 1
 let g:virtualenv_directory = '$PWD'
 let g:virtualenv_auto_activate = 1
-let g:pymode_lint_checkers = ['pylint', 'pyflakes']
+let g:pymode_lint_checkers = ['flake8']
 let g:pymode_options_max_line_length = 120
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
