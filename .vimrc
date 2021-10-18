@@ -7,6 +7,9 @@ map <F3> :source ~/.vim_session <cr>     " And load session with F3
 " show line numbers
 set number
 
+" set backspace
+set bs=2
+
 " set tabs to have 4 spaces
 set ts=4
 
@@ -55,9 +58,14 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'moll/vim-node'
 Plugin 'bling/vim-airline'
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'jremmen/vim-ripgrep'
+Plugin 'tpope/vim-fugitive'
+Plugin 'iamcco/markdown-preview.nvim'
+Plugin 'tmhedberg/SimpylFold'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -131,3 +139,5 @@ highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
+
+set relativenumber

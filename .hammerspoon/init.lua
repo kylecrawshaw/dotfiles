@@ -2,6 +2,7 @@ require "keys"
 require "pomodoro"
 require "random"
 require "windows"
+require "lights"
 -- require "mjomatic"
 
 local showalerts = true

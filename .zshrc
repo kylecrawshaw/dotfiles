@@ -1,4 +1,3 @@
-# Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 # Set name of the theme to load.
 #
@@ -7,8 +6,15 @@ DEFAULT_USER=$(whoami)
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -51,7 +57,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew catimg convert osx tmuxomatic tmux zsh-syntax-highlighting)
+plugins=(git brew catimg osx tmux zsh-z zsh-autosuggestions aws)
 
 # User configuration
 
@@ -93,14 +99,8 @@ done
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-export WORKON_HOME=~/.virtualenvs
-export PROJECT_HOME=~/Devel
-export ANSIBLE_INVENTORY=~/ansible/ansible_hosts
-source /usr/local/bin/virtualenvwrapper.sh
-
 export VISUAL=vim
 export EDITOR="$VISUAL"
-export AWS_PROFILE=circleit
 
 
 function pem_encrypt() {
@@ -125,9 +125,6 @@ function install_powerline_precmd() {
 
 
 
-if [ "$TERM" != "linux" ]; then
-    # install_powerline_precmd
-fi
 
 
 listsysctls () { set -A reply $(sysctl -AN ${1%.*}) }
@@ -137,8 +134,6 @@ compctl -K listsysctls sysctl
 DISABLE_AUTO_TITLE=true
 export PATH="/usr/local/sbin:$PATH"
 
-# added by travis gem
-[ -f /Users/kylecrawshaw/.travis/travis.sh ] && source /Users/kylecrawshaw/.travis/travis.sh
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -150,3 +145,28 @@ export PATH="/usr/local/sbin:$PATH"
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+
+export PATH="$PATH:$HOME/.krew/bin"  # Path to your oh-my-zsh installation.
+
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+. /usr/local/opt/asdf/asdf.sh
+
+
+#export PATH="$PATH:/usr/local/Cellar/python@3.9/3.9.1_2/Frameworks/Python.framework/Versions/3.9/bin"
+export PATH=$PATH:$(go env GOPATH)/bin
+
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+fpath+=~/.zfunc
+
+export PATH="$HOME/.poetry/bin:$PATH"
