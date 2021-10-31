@@ -22,3 +22,10 @@ alias techo3='say yes; cd ~/ && echo "$@"'
 
 alias dynamo='java -Djava.library.path=~/UtilityRepos/DynamoDBLocal_lib -jar ~/UtilityRepos/DynamoDBLocal.jar -sharedDb'
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
+alias v='nvim'
+alias tg='terragrunt'
+alias tf='terraform'
+alias tfmtdiff='terraform fmt -write=false -recursive -diff'
+alias tfmtnw='terraform fmt -write=false -recursive'
+alias tfmt='terraform fmt -recursive'

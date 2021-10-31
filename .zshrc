@@ -99,7 +99,7 @@ done
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 
@@ -170,3 +170,6 @@ zstyle ':completion:*' menu select
 fpath+=~/.zfunc
 
 export PATH="$HOME/.poetry/bin:$PATH"
+
+# Created by `pipx` on 2021-10-19 19:26:16
+export PATH="$PATH:/Users/kyle/.local/bin"

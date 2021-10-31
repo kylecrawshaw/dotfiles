@@ -66,6 +66,9 @@ Plugin 'jremmen/vim-ripgrep'
 Plugin 'tpope/vim-fugitive'
 Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'hashivim/vim-terraform'
+Plugin 'ruanyl/vim-gh-line'
+Plugin 'neovim/nvim-lspconfig'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -115,8 +118,9 @@ map gp :bp<cr>
 map gd :bd<cr>
 
 set mouse=a " enable mouse in all modes
-set ttymouse=xterm  " set mouse type to xterm
-
+if !has('nvim')
+  set ttymouse=xterm2 " set mouse type to xterm
+endif
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -141,3 +145,13 @@ highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
 
 set relativenumber
+
+let g:hcl_fold_sections = 1
+let javascript_fold = 1
+set switchbuf+=newtab
+
+
+call plug#begin('~/.vim/plugged')
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+call plug#end()
