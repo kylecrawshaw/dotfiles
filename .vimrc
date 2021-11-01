@@ -152,6 +152,11 @@ set switchbuf+=newtab
 
 
 call plug#begin('~/.vim/plugged')
-Plug 'nvim-lua/plenary.nvim'
-Plug 'lewis6991/gitsigns.nvim'
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'lewis6991/gitsigns.nvim'
+Plug 'tveskag/nvim-blame-line'
 call plug#end()
+
+
+autocmd BufEnter * EnableBlameLine
+
