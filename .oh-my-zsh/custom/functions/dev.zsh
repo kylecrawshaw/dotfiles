@@ -20,3 +20,7 @@ function gitcleanup() {
         done
     fi
 }
+
+function opauth() {
+  eval $(op signin my)
+}
