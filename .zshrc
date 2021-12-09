@@ -8,6 +8,7 @@ DEFAULT_USER=$(whoami)
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="agnoster"
 ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="dracula"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -57,7 +58,7 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew catimg macos tmux zsh-z zsh-autosuggestions aws)
+plugins=(git brew catimg macos tmux zsh-z zsh-autosuggestions aws kubectl web-search history helm)
 
 # User configuration
 
@@ -173,3 +174,5 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 # Created by `pipx` on 2021-10-19 19:26:16
 export PATH="$PATH:/Users/kyle/.local/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
