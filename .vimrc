@@ -1,7 +1,6 @@
 "enable syntax highlighting
 syntax enable
 
-
 map <F2> :mksession! ~/.vim_session <cr> " Quick write session with F2
 map <F3> :source ~/.vim_session <cr>     " And load session with F3
 " show line numbers
@@ -64,7 +63,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'tpope/vim-fugitive'
-Plugin 'iamcco/markdown-preview.nvim'
+" Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'hashivim/vim-terraform'
 Plugin 'ruanyl/vim-gh-line'
@@ -74,9 +73,9 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " background and colorscheme
-set t_Co=256
-set background=dark
-colorscheme solarized
+" set t_Co=256
+" set background=dark
+" colorscheme solarized
 
 " NERDTree Shortcuts
 map <C-n> :NERDTreeToggle<CR>
@@ -100,7 +99,7 @@ let python_highlight_all = 1
 " maybe git rid of
 " filetype plugin on
 let vim_markdown_preview_github=1
-let vim_markdown_preview_browser='Safari'
+let vim_markdown_preview_browser='Brave'
 
 " Ultisnips prefs
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -120,11 +119,13 @@ map gd :bd<cr>
 set mouse=a " enable mouse in all modes
 if !has('nvim')
   set ttymouse=xterm2 " set mouse type to xterm
+else
+  set encoding=UTF-8
 endif
 
 " Syntastic
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
@@ -148,6 +149,7 @@ set relativenumber
 
 let g:hcl_fold_sections = 1
 let javascript_fold = 1
+set foldmethod=syntax
 set switchbuf+=newtab
 
 
@@ -155,8 +157,27 @@ call plug#begin('~/.vim/plugged')
 "Plug 'nvim-lua/plenary.nvim'
 "Plug 'lewis6991/gitsigns.nvim'
 Plug 'tveskag/nvim-blame-line'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'ryanoasis/vim-devicons'
+Plug 'glepnir/dashboard-nvim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'fatih/vim-go'
+Plug 'ncm2/ncm2'
+Plug 'ncm2/ncm2-go'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+Plug 'ncm2/ncm2-ultisnips'
+Plug 'SirVer/ultisnips'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'pedrohdz/vim-yaml-folds'
 call plug#end()
-
+colorscheme dracula
 
 autocmd BufEnter * EnableBlameLine
 
+autocmd BufWritePre * :%s/\s\+$//e
+
+let g:python_host_prog = '~/.asdf/installs/python/2.7.16/bin/python'
+let g:python3_host_prog = '~/.asdf/shims/python'
